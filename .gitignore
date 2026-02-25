@@ -38,25 +38,5 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
-apps/scraper/backend/data/mlb_milb_teams_20260109_145119.json
-apps/scraper/backend/data/mlb_milb_teams_20260113_033424.json
-apps/scraper/backend/data/mlb_milb_teams_20260113_033424.xlsx
-apps/scraper/backend/data/mlb_milb_teams_20260113_034314.json
-apps/scraper/backend/data/mlb_milb_teams_20260113_034314.xlsx
-apps/scraper/backend/data/nba_gleague_teams_20260113_033425.json
-apps/scraper/backend/data/nba_gleague_teams_20260113_033425.xlsx
-apps/scraper/backend/data/nba_gleague_teams_20260113_034316.json
-apps/scraper/backend/data/nba_gleague_teams_20260113_034316.xlsx
-apps/scraper/backend/data/nfl_teams_20260113_033430.json
-apps/scraper/backend/data/nfl_teams_20260113_033430.xlsx
-apps/scraper/backend/data/nfl_teams_20260113_034317.json
-apps/scraper/backend/data/nfl_teams_20260113_034317.xlsx
-apps/scraper/backend/data/nhl_ahl_echl_teams_20260113_033428.json
-apps/scraper/backend/data/nhl_ahl_echl_teams_20260113_033428.xlsx
-apps/scraper/backend/data/nhl_ahl_echl_teams_20260113_034317.json
-apps/scraper/backend/data/nhl_ahl_echl_teams_20260113_034317.xlsx
-apps/scraper/backend/data/mlb_milb_teams_20260109_145119.json
-apps/scraper/backend/data/mlb_milb_teams_20260113_041814.json
-apps/scraper/backend/data/mlb_milb_teams_20260113_041814.xlsx
-apps/scraper/backend/data/nba_gleague_teams_20260113_041552.json
-apps/scraper/backend/data/nba_gleague_teams_20260113_041552.xlsx
+apps/scraper/backend/data/*.json
+apps/scraper/backend/data/*.xlsx

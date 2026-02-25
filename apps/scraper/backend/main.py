@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import math
 import os
 import httpx
 import uuid
@@ -1650,6 +1651,19 @@ async def _get_convex_team_count() -> int:
     return 0
 
 
+def _sanitize_for_json(obj: Any) -> Any:
+    """Recursively remove NaN/Inf float values that aren't JSON-compliant."""
+    if isinstance(obj, float):
+        if math.isnan(obj) or math.isinf(obj):
+            return None
+        return obj
+    if isinstance(obj, dict):
+        return {k: _sanitize_for_json(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_sanitize_for_json(item) for item in obj]
+    return obj
+
+
 async def _export_to_convex(
     teams: List[Dict[str, Any]], overwrite: bool
 ) -> Dict[str, Any]:
@@ -1735,6 +1749,10 @@ async def _export_to_convex(
                 # Convert to raw value if needed
                 convex_team[target_field] = value * multiplier
 
+        # Sanitize NaN/Inf values that aren't JSON-compliant
+        convex_team = _sanitize_for_json(convex_team)
+        # After sanitizing, strip any keys that became None
+        convex_team = {k: v for k, v in convex_team.items() if v is not None}
         convex_teams.append(convex_team)
 
     # Convex has a limit on mutation payload size, so we batch

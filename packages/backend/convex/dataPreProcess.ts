@@ -57,12 +57,12 @@ async function embed(txt: string | undefined | null, apiKey: string): Promise<nu
     if (!txt || txt.trim() === "") return null;
   
     const body = {
-      model: "models/embedding-001",
+      model: "models/gemini-embedding-001",
       content: { parts: [{ text: txt }] }
     };
   
     const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/embedding-001:embedContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=${apiKey}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
